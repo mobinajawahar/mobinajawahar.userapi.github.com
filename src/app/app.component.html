@@ -1,0 +1,27 @@
+<mat-toolbar color="primary" style="background-color:black;">
+    <mat-toolbar-row>
+      <button mat-icon-button style="color: #736a6a;outline: none;">
+        <mat-icon (click)="sidenav.toggle()" >menu</mat-icon>
+      </button>
+      <div>
+        <a mat-button [routerLink]="'/link'" class="btn" style="width:10rem;margin-left:2rem;"> link </a>
+        <a mat-button [routerLink]="'/menu'"[matMenuTriggerFor]="menu" class="btn" style="width: 10rem;margin-left: 2rem;outline: none;"> Menu </a>
+        <mat-menu  #menu="matMenu" style="margin-top: 69rem;outline: none;">
+             <button mat-menu-item>Item 1</button>
+             <button mat-menu-item>Item 2</button>
+        </mat-menu>
+        <a mat-button [routerLink]="'/user'" class="btn" style="width:10rem;margin-left: 2rem;"> User </a>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav>
+      <mat-nav-list style="width:10rem;height:36.5rem;background-color:#736a6a;">
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div style="height: 88vh;">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
